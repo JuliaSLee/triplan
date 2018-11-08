@@ -142,7 +142,14 @@ const trip = [
 
 const tripplace = [
   {date: '07-04-2019', hour: 20, minute: '0', tripId: 1, placeId: 1},
-  {date: '07-05-2019', hour: 19, minute: '30', tripId: 1, placeId: 2}
+  {date: '07-05-2019', hour: 19, minute: '30', tripId: 1, placeId: 2},
+  {date: '07-04-2019', hour: 22, minute: '0', tripId: 1, placeId: 3},
+  {date: '07-05-2019', hour: 10, minute: '30', tripId: 1, placeId: 4},
+  {date: '07-06-2019', hour: 9, minute: '0', tripId: 1, placeId: 5},
+  {date: '07-06-2019', hour: 13, minute: '0', tripId: 1, placeId: 6},
+  {date: '07-04-2019', hour: 21, minute: '30', tripId: 1, placeId: 7},
+  {date: '07-04-2019', hour: 12, minute: '0', tripId: 1, placeId: 8},
+  {date: '07-04-2019', hour: 10, minute: '30', tripId: 1, placeId: 9}
 ]
 
 async function seed() {
