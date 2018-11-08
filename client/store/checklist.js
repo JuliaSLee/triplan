@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const GET_CHECKLIST = 'GET_CHECKLIST'
 
-let initialState = {}
+let initialState = []
 
 export const getChecklist = checklist => ({
   type: GET_CHECKLIST,
@@ -22,7 +22,7 @@ export const fetchChecklist = () => async dispatch => {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_CHECKLIST:
-      return action.checklist
+      return [...action.checklist]
     default:
       return state
   }
