@@ -5,8 +5,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import checklist from './checklist'
 import place from './place'
+import budget from './budget'
 
-const reducer = combineReducers({user, checklist, place})
+const reducer = combineReducers({user, checklist, place, budget})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -16,3 +17,4 @@ export default store
 export * from './user'
 export * from './checklist'
 export * from './place'
+export * from './budget'
