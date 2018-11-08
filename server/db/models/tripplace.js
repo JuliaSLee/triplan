@@ -3,7 +3,7 @@ const db = require('../db')
 
 const TripPlace = db.define('tripplace', {
   date: {
-    type: Sequelize.DATEONLY,
+    type: Sequelize.DATE,
     allowNull: false,
     validate: {notEmpty: true}
   },

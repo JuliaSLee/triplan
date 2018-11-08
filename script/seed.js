@@ -27,8 +27,8 @@ const budget = [
   {name: 'Architecture Tour', amount: 30},
   {name: 'Shopping at Michigan Ave.', amount: 300},
   {name: 'Intelligentsia Coffee', amount: 10},
-  {name: 'Pizza Parlor', amount: 25},
-  {name: "Jeni's Icecream", amount: 1},
+  {name: 'Parlor Pizza Bar', amount: 25},
+  {name: 'Ghirardelli Ice Cream', amount: 12},
   {name: 'Uber', amount: 50},
   {name: 'Metra', amount: 10},
   {name: 'Hilton Hotel', amount: 460},
@@ -49,6 +49,87 @@ const checklist = [
   {name: 'Tylenol'}
 ]
 
+const note = [
+  {
+    contents:
+      'Chicago average temperature in July is 82°/70° (°F). Mostly sunny, rains 7 days on average, and windy 🌬'
+  },
+  {
+    contents: 'Southside Chicago is dangerous🙅‍ especially at night'
+  },
+  {
+    contents: 'Westloop has many good places to eat'
+  }
+]
+
+const place = [
+  {
+    name: 'Avec',
+    address: '615 W Randolph St, Chicago, IL 60661',
+    location: [41.884307, -87.643409]
+  },
+  {
+    name: 'Parlor Pizza Bar',
+    address: '108 N Green St, Chicago, IL 60607',
+    location: [41.883229, -87.648802]
+  },
+  {
+    name: 'Willis Tower',
+    address: '233 S Wacker Dr, Chicago, IL 60606',
+    location: [41.878875, -87.635904]
+  },
+  {
+    name: 'Art Institute of Chicago',
+    address: '111 S Michigan Ave, Chicago, IL 60603',
+    location: [41.879574, -87.624005]
+  },
+  {
+    name: 'Millennium Park',
+    address: '201 E Randolph St, Chicago, IL 60602',
+    location: [41.882489, -87.623782]
+  },
+  {
+    name: 'Adler Planetarium',
+    address: '1300 S Lake Shore Dr, Chicago, IL 60605',
+    location: [41.884307, -87.643409]
+  },
+  {
+    name: 'Ghirardelli Ice Cream',
+    address: '400 N Michigan Ave #100, Chicago, IL 60611',
+    location: [41.889564, -87.624683]
+  },
+  {
+    name: 'Au Cheval',
+    address: '800 W Randolph St, Chicago, IL 60607',
+    location: [41.884617, -87.647609]
+  },
+  {
+    name: "O'Hare International Airport",
+    address: "10000 W O'Hare Ave, Chicago, IL 60666",
+    location: [41.975057, -87.909333]
+  }
+]
+
+const trip = [
+  {name: 'Chicago, July 2019', startDate: '07-04-2019', endDate: '07-06-2019'},
+  {
+    name: 'New York, October 2018',
+    startDate: '10-06-2018',
+    endDate: '10-10-2018'
+  },
+  {name: 'Italy, April 2018', startDate: '04-06-2018', endDate: '04-16-2018'},
+  {
+    name: 'Seoul Korea, January 2017',
+    startDate: '01-08-2017',
+    endDate: '01-16-2017'
+  }
+]
+
+const tripplace = [
+  {date: '07-04-2019', hour: 20, minute: '0', tripId: 1, placeId: 1},
+  {date: '07-05-2019', hour: 19, minute: '30', tripId: 1, placeId: 2}
+]
+
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
@@ -56,6 +137,10 @@ async function seed() {
   await Promise.all(users.map(user => User.create(user)))
   await Budget.bulkCreate(budget)
   await Checklist.bulkCreate(checklist)
+  await Note.bulkCreate(note)
+  await Place.bulkCreate(place)
+  await Trip.bulkCreate(trip)
+  await TripPlace.bulkCreate(tripplace)
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
