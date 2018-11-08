@@ -18,47 +18,50 @@ const users = [
 ]
 
 const budget = [
-  {name: 'Flight ticket', amount: 150},
-  {name: 'Art institute of Chicago', amount: 15},
-  {name: 'Willis Tower Skydeck', amount: 30},
-  {name: 'Avec', amount: 50},
-  {name: 'Au Cheval', amount: 35},
-  {name: 'Chicago History Museum', amount: 20},
-  {name: 'Architecture Tour', amount: 30},
-  {name: 'Shopping at Michigan Ave.', amount: 300},
-  {name: 'Intelligentsia Coffee', amount: 10},
-  {name: 'Parlor Pizza Bar', amount: 25},
-  {name: 'Ghirardelli Ice Cream', amount: 12},
-  {name: 'Uber', amount: 50},
-  {name: 'Metra', amount: 10},
-  {name: 'Hilton Hotel', amount: 460},
-  {name: 'Garrett Popcorn', amount: 13}
+  {name: 'Flight ticket', amount: 150, tripId: 1},
+  {name: 'Art institute of Chicago', amount: 15, tripId: 1},
+  {name: 'Willis Tower Skydeck', amount: 30, tripId: 1},
+  {name: 'Avec', amount: 50, tripId: 1},
+  {name: 'Au Cheval', amount: 35, tripId: 1},
+  {name: 'Chicago History Museum', amount: 20, tripId: 1},
+  {name: 'Architecture Tour', amount: 30, tripId: 1},
+  {name: 'Shopping at Michigan Ave.', amount: 300, tripId: 1},
+  {name: 'Intelligentsia Coffee', amount: 10, tripId: 1},
+  {name: 'Parlor Pizza Bar', amount: 25, tripId: 1},
+  {name: 'Ghirardelli Ice Cream', amount: 12, tripId: 1},
+  {name: 'Uber', amount: 50, tripId: 1},
+  {name: 'Metra', amount: 10, tripId: 1},
+  {name: 'Hilton Hotel', amount: 460, tripId: 1},
+  {name: 'Garrett Popcorn', amount: 13, tripId: 1}
 ]
 
 const checklist = [
-  {name: 'Book a flight ticket'},
-  {name: 'Passport, ID'},
-  {name: 'Credit card'},
-  {name: 'Phone charger'},
-  {name: 'Pajamas'},
-  {name: 'Eyeglasses'},
-  {name: 'Withdraw cash'},
-  {name: 'Snack'},
-  {name: 'Earpods'},
-  {name: 'Book a hotel'},
-  {name: 'Tylenol'}
+  {name: 'Book a flight ticket', tripId: 1},
+  {name: 'Passport, ID', tripId: 1},
+  {name: 'Credit card', tripId: 1},
+  {name: 'Phone charger', tripId: 1},
+  {name: 'Pajamas', tripId: 1},
+  {name: 'Eyeglasses', tripId: 1},
+  {name: 'Withdraw cash', tripId: 1},
+  {name: 'Snack', tripId: 1},
+  {name: 'Earpods', tripId: 1},
+  {name: 'Book a hotel', tripId: 1},
+  {name: 'Tylenol', tripId: 1}
 ]
 
 const note = [
   {
     contents:
-      'Chicago average temperature in July is 82°/70° (°F). Mostly sunny, rains 7 days on average, and windy 🌬'
+      'Chicago average temperature in July is 82°/70° (°F). Mostly sunny, rains 7 days on average, and windy 🌬',
+    tripId: 1
   },
   {
-    contents: 'Southside Chicago is dangerous🙅‍ especially at night'
+    contents: 'Southside Chicago is dangerous🙅‍ especially at night',
+    tripId: 1
   },
   {
-    contents: 'Westloop has many good places to eat'
+    contents: 'Westloop has many good places to eat',
+    tripId: 1
   }
 ]
 
@@ -111,17 +114,29 @@ const place = [
 ]
 
 const trip = [
-  {name: 'Chicago, July 2019', startDate: '07-04-2019', endDate: '07-06-2019'},
+  {
+    name: 'Chicago, July 2019',
+    startDate: '07-04-2019',
+    endDate: '07-06-2019',
+    userId: 3
+  },
   {
     name: 'New York, October 2018',
     startDate: '10-06-2018',
-    endDate: '10-10-2018'
+    endDate: '10-10-2018',
+    userId: 3
   },
-  {name: 'Italy, April 2018', startDate: '04-06-2018', endDate: '04-16-2018'},
+  {
+    name: 'Italy, April 2018',
+    startDate: '04-06-2018',
+    endDate: '04-16-2018',
+    userId: 3
+  },
   {
     name: 'Seoul Korea, January 2017',
     startDate: '01-08-2017',
-    endDate: '01-16-2017'
+    endDate: '01-16-2017',
+    userId: 3
   }
 ]
 
@@ -135,12 +150,12 @@ async function seed() {
   console.log('db synced!')
 
   await Promise.all(users.map(user => User.create(user)))
+  await Trip.bulkCreate(trip)
+  await Place.bulkCreate(place)
+  await TripPlace.bulkCreate(tripplace)
   await Budget.bulkCreate(budget)
   await Checklist.bulkCreate(checklist)
   await Note.bulkCreate(note)
-  await Place.bulkCreate(place)
-  await Trip.bulkCreate(trip)
-  await TripPlace.bulkCreate(tripplace)
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
