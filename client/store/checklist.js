@@ -12,7 +12,6 @@ export const getChecklist = checklist => ({
 export const fetchChecklist = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/checklist')
-    console.log('data --->', data)
     dispatch(getChecklist(data))
   } catch (err) {
     console.error(err)

@@ -6,7 +6,7 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const checklist = await Checklist.findAll()
-    console.log('checklist --->', checklist)
+
     res.json(checklist)
   } catch (err) {
     next(err)
