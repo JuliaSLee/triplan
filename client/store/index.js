@@ -6,8 +6,9 @@ import user from './user'
 import checklist from './checklist'
 import place from './place'
 import budget from './budget'
+import trip from './trip'
 
-const reducer = combineReducers({user, checklist, place, budget})
+const reducer = combineReducers({user, checklist, place, budget, trip})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -18,3 +19,4 @@ export * from './user'
 export * from './checklist'
 export * from './place'
 export * from './budget'
+export * from './trip'

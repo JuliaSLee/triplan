@@ -52,6 +52,7 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
+    "react-big-scheduler": "^0.2.2",
     "react-chartjs": "^1.2.0",
     "react-dom": "^16.6.1",
     "react-leaflet": "^2.1.1",
