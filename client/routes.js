@@ -34,12 +34,12 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             <Route path="/home" component={UserHome} />
-            <Route path="/trips/:tripId/map" component={VisualMap} />
-            <Route path="/trips/:tripId/budget" component={Budget} />
-            <Route path="/trips/:tripId/note" component={Note} />
-            <Route path="/trips/:tripId/checklist" component={Checklist} />
             <Route path="/trips/:tripId" component={SingleTrip} />
             <Route path="/trips" component={AllTrips} />
+            <Route path="/map" component={VisualMap} />
+            <Route path="//budget" component={Budget} />
+            <Route path="/note" component={Note} />
+            <Route path="/checklist" component={Checklist} />
           </Switch>
         )}
         <Route component={Login} />

@@ -41,7 +41,7 @@ const mapState = ({checklist}) => ({checklist})
 
 const mapDispatch = dispatch => ({
   setChecklist: () => dispatch(fetchChecklist()),
-  removechecklist: () => dispatch(deleteChecklist())
+  removechecklist: listItemId => dispatch(deleteChecklist(listItemId))
 })
 
 export default connect(mapState, mapDispatch)(Checklist)

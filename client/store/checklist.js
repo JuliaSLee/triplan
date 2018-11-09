@@ -16,9 +16,9 @@ export const addChecklist = checklist => ({
   checklist
 })
 
-export const removeChecklist = checklist => ({
+export const removeChecklist = listItem => ({
   type: REMOVE_CHECKLIST,
-  checklist
+  listItem
 })
 
 export const fetchChecklist = () => async dispatch => {
@@ -30,19 +30,19 @@ export const fetchChecklist = () => async dispatch => {
   }
 }
 
-export const postChecklist = checklistId => async dispatch => {
+export const postChecklist = listItem => async dispatch => {
   try {
-    const {data} = await axios.post(`/api/checklist/${checklistId}`)
+    const {data} = await axios.post(`/api/checklist`, listItem)
     dispatch(addChecklist(data))
   } catch (err) {
     console.error(err)
   }
 }
 
-export const deleteChecklist = checklistId => async dispatch => {
+export const deleteChecklist = listItemId => async dispatch => {
   try {
-    await axios.delete(`/api/checklist/${checklistId}`)
-    dispatch(removeChecklist(checklistId))
+    await axios.delete(`/api/checklist/${listItemId}`)
+    dispatch(removeChecklist(listItemId))
   } catch (err) {
     console.error(err)
   }
@@ -55,7 +55,7 @@ export default function(state = initialState, action) {
     case ADD_CHECKLIST:
       return [...state, action.checklist]
     case REMOVE_CHECKLIST:
-      return state.filter(item => item !== action.checklist)
+      return state.filter(item => item.id !== action.listItem)
     default:
       return state
   }

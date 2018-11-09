@@ -22,10 +22,11 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.delete('/:checklistId', async (req, res, next) => {
+router.delete('/:listItemId', async (req, res, next) => {
   try {
+    console.log('---->req', req)
     await Checklist.destroy({
-      where: {id: req.params.checklistId}
+      where: {id: req.params.listItemId}
     })
     res.status(204).end()
   } catch (err) {

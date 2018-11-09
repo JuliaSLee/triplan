@@ -10,7 +10,7 @@ export const getTrips = trips => ({
   trips
 })
 
-export const getSingleTrips = trip => ({
+export const getSingleTrip = trip => ({
   type: GET_SINGLETRIP,
   trip
 })
@@ -18,15 +18,6 @@ export const getSingleTrips = trip => ({
 export const fetchTrips = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/trip')
-    dispatch(getTrips(data))
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-export const fetchSingleTrip = tripId => async dispatch => {
-  try {
-    const {data} = await axios.get(`/api/trip/${tripId}`)
     dispatch(getTrips(data))
   } catch (err) {
     console.log(err)

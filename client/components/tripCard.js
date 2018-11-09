@@ -8,7 +8,7 @@ const TripCard = props => {
   return (
     <Card>
       {/* <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" /> */}
-      <Card.Content grouped>
+      <Card.Content>
         <Link to={`/trips/${singleTrip.id}`}>
           <Card.Header>{singleTrip.name}</Card.Header>
         </Link>

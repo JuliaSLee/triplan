@@ -6,8 +6,8 @@ const Place = require('./place')
 const Trip = require('./trip')
 const TripPlace = require('./tripplace')
 
-User.hasMany(Trip)
-Trip.belongsTo(User)
+// User.hasMany(Trip)
+// Trip.belongsTo(User)
 
 Trip.belongsToMany(Place, {through: TripPlace})
 Place.belongsToMany(Trip, {through: TripPlace})

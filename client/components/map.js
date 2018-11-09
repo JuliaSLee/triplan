@@ -2,7 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchPlaces} from '../store'
 // const {Map: LeafletMap, TileLayer, Marker, Popup} = ReactLeaflet
+import {List} from 'semantic-ui-react'
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
+import SavedPin from './savedPin'
+import PlaceList from './placeList'
 
 class VisualMap extends React.Component {
   constructor() {
@@ -26,15 +29,11 @@ class VisualMap extends React.Component {
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           />
-          {this.props.place.map(pin => (
-            <Marker key={pin.id} position={pin.location}>
-              <Popup>
-                {pin.name} <br /> address: {pin.address}
-              </Popup>
-            </Marker>
-          ))}
+          {this.props.place.map(pin => <SavedPin key={pin.id} pin={pin} />)}
         </Map>
-        {this.props.place.map(pin => pin.name)}
+        <List>
+          {this.props.place.map(pin => <PlaceList key={pin.id} pin={pin} />)}
+        </List>
       </div>
     )
   }

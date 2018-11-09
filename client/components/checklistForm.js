@@ -33,7 +33,7 @@ export class ChecklistForm extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Button color="teal">
+        <Form.Button>
           <Icon name="add" />
           Add Item
         </Form.Button>
