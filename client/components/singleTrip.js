@@ -15,7 +15,7 @@ class SingleTrip extends Component {
   }
   render() {
     const {trip} = this.props
-    console.log('===>trip', trip)
+    console.log('===>this.props', this.props)
     return (
       <Container>
         <Header as="h2" dividing>
@@ -31,7 +31,10 @@ class SingleTrip extends Component {
           Note
         </Link>
         <br />
-        <Link to="/checklist" onClick={() => <Checklist />}>
+        <Link
+          to="{this.props.location.pathname}/checklist"
+          onClick={() => <Checklist />}
+        >
           Checklist
         </Link>
       </Container>

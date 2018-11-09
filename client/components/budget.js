@@ -1,53 +1,38 @@
-// import React from 'react'
+import React from 'react'
 // import {connect} from 'react-redux'
 // import {fetchBudget} from '../store'
-// import DoughnutChart from 'react-chartjs'
-// import Chart from 'chart.js'
+// import {Doughnut, Bar} from 'react-chartjs-2'
+// import 'chartjs-plugin-annotation'
 
-// const chartData = {
-//   labels: ['match1', 'match2', 'match3', 'match4', 'match5'],
+// const data = {
+//   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 //   datasets: [
 //     {
-//       label: 'TeamB Score',
-//       data: [20, 35, 40, 60, 50],
-//       backgroundColor: ['#FAEBD7', '#DCDCDC', '#E9967A', '#F5DEB3', '#9ACD32'],
-//       borderWidth: [1, 1, 1, 1, 1]
+//       label: 'My First dataset',
+//       backgroundColor: 'rgb(255, 99, 132)',
+//       borderColor: 'rgb(255, 99, 132)',
+//       data: [0, 10, 5, 2, 20, 30, 45]
 //     }
 //   ]
-// }
-
-// const chartOptions = {
-//   responsive: true,
-//   title: {
-//     display: true,
-//     position: 'top',
-//     text: 'Doughnut Chart',
-//     fontSize: 18,
-//     fontColor: '#111'
-//   },
-//   legend: {
-//     display: true,
-//     position: 'bottom',
-//     labels: {
-//       fontColor: '#333',
-//       fontSize: 16
-//     }
-//   }
 // }
 
 // class Budget extends React.Component {
 //   componentDidMount() {
 //     this.props.setBudget()
+//     console.log(this.refs.chart.chartInstance) // returns a Chart.js instance reference
 //   }
 
 //   render() {
 //     return (
 //       <canvas>
-//         <DoughnutChart.Doughnut
-//           data={chartData}
-//           options={chartOptions}
-//           width="600"
-//           height="250"
+//         <Doughnut
+//           ref="chart"
+//           data={data}
+//           width={100}
+//           height={50}
+//           options={{
+//             maintainAspectRatio: false
+//           }}
 //         />
 //       </canvas>
 //     )
@@ -61,3 +46,51 @@
 // })
 
 // export default connect(mapState, mapDispatch)(Budget)
+
+// class Budget extends React.Component {
+//   render() {
+//     const options = {
+//       annotation: {
+//         annotations: [
+//           {
+//             drawTime: 'afterDatasetsDraw',
+//             borderColor: 'red',
+//             borderDash: [2, 2],
+//             borderWidth: 2,
+//             mode: 'vertical',
+//             type: 'line',
+//             value: 10,
+//             scaleID: 'x-axis-0'
+//           }
+//         ]
+//       },
+//       maintainAspectRation: false
+//     }
+//     return <Bar data={data} width={100} height={50} options={options} />
+//   }
+// }
+// export default Budget
+
+// import {Doughnut} from 'react-chartjs-2'
+
+// const data = {
+//   labels: ['Red', 'Green', 'Yellow'],
+//   datasets: [
+//     {
+//       data: [300, 50, 100],
+//       backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+//       hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+//     }
+//   ]
+// }
+
+// const Budget = () => {
+//   return (
+//     <div>
+//       <h2>Doughnut Example</h2>
+//       <Doughnut data={data} />
+//     </div>
+//   )
+// }
+
+// export default Budget

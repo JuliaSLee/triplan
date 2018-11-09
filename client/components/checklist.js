@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Form} from 'semantic-ui-react'
-import {fetchChecklist} from '../store'
+import {Form, Segment, Button} from 'semantic-ui-react'
+import {fetchChecklist, deleteChecklist} from '../store'
+import ChecklistForm from './checklistForm'
 
 class Checklist extends Component {
   componentDidMount() {
@@ -12,14 +13,23 @@ class Checklist extends Component {
       <Form>
         <Form.Group grouped>
           <h2>My Checklist</h2>
-
+          <ChecklistForm />
           {this.props.checklist.map(listItem => (
-            <Form.Field
-              key={listItem.id}
-              label={listItem.name}
-              control="input"
-              type="checkbox"
-            />
+            <Segment key={listItem.id}>
+              <Form.Field
+                label={listItem.name}
+                control="input"
+                type="checkbox"
+              />
+              <Button
+                type="submit"
+                onClick={() => {
+                  this.props.removechecklist(listItem.id)
+                }}
+              >
+                Delete
+              </Button>
+            </Segment>
           ))}
         </Form.Group>
       </Form>
@@ -30,7 +40,8 @@ class Checklist extends Component {
 const mapState = ({checklist}) => ({checklist})
 
 const mapDispatch = dispatch => ({
-  setChecklist: () => dispatch(fetchChecklist())
+  setChecklist: () => dispatch(fetchChecklist()),
+  removechecklist: () => dispatch(deleteChecklist())
 })
 
 export default connect(mapState, mapDispatch)(Checklist)
