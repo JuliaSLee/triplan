@@ -8,7 +8,7 @@ import {
   UserHome,
   Note,
   Checklist,
-  VisualMap,
+  MapContainer,
   Budget,
   SingleTrip,
   AllTrips
@@ -36,7 +36,7 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
             <Route path="/trips/:tripId" component={SingleTrip} />
             <Route path="/trips" component={AllTrips} />
-            <Route path="/map" component={VisualMap} />
+            <Route path="/map" component={MapContainer} />
             <Route path="//budget" component={Budget} />
             <Route path="/note" component={Note} />
             <Route path="/checklist" component={Checklist} />
