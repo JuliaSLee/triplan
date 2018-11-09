@@ -4,7 +4,7 @@ import {Card, Icon, Image, Container, Header} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
 import TripCard from './tripCard'
 
-class Trip extends Component {
+class AllTrips extends Component {
   componentDidMount() {
     this.props.setTrips()
   }
@@ -15,17 +15,17 @@ class Trip extends Component {
           My Trips
         </Header>
         {this.props.trip.map(singleTrip => (
-          <TripCard key={singleTrip.id} trips={singleTrip} />
+          <TripCard key={singleTrip.id} singleTrip={singleTrip} />
         ))}
       </Container>
     )
   }
 }
 
-const mapState = ({trip}) => ({trip})
+const mapState = ({trip}) => ({trip: trip.allTrips})
 
 const mapDispatch = dispatch => ({
   setTrips: () => dispatch(fetchTrips())
 })
 
-export default connect(mapState, mapDispatch)(Trip)
+export default connect(mapState, mapDispatch)(AllTrips)
