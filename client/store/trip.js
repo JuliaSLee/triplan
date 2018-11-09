@@ -20,17 +20,16 @@ export const fetchTrips = () => async dispatch => {
     const {data} = await axios.get('/api/trip')
     dispatch(getTrips(data))
   } catch (err) {
-    console.error(err)
+    console.log(err)
   }
 }
 
 export const fetchSingleTrip = tripId => async dispatch => {
   try {
     const {data} = await axios.get(`/api/trip/${tripId}`)
-    console.log('data---->', data)
     dispatch(getTrips(data))
   } catch (err) {
-    console.error(err)
+    console.log(err)
   }
 }
 

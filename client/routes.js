@@ -30,15 +30,16 @@ class Routes extends Component {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/trips/:tripId" component={SingleTrip} />
-        <Route path="/trips" component={AllTrips} />
-        <Route path="/map" component={VisualMap} />
-        <Route path="/budget" component={Budget} />
-        <Route path="/note" component={Note} />
-        <Route path="/checklist" component={Checklist} />
+
         {isLoggedIn && (
           <Switch>
             <Route path="/home" component={UserHome} />
+            <Route path="/trips/:tripId" component={SingleTrip} />
+            <Route path="/trips" component={AllTrips} />
+            <Route path="/map" component={VisualMap} />
+            <Route path="/budget" component={Budget} />
+            <Route path="/note" component={Note} />
+            <Route path="/checklist" component={Checklist} />
           </Switch>
         )}
         <Route component={Login} />

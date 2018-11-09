@@ -3,7 +3,10 @@ import {Form, TextArea} from 'semantic-ui-react'
 
 const Note = () => (
   <Form>
-    <TextArea autoHeight placeholder="your note" />
+    <Form.Group grouped>
+      <h2>Note</h2>
+      <TextArea autoHeight placeholder="your note" />
+    </Form.Group>
   </Form>
 )
 

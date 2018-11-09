@@ -20,19 +20,22 @@ class VisualMap extends React.Component {
   render() {
     const position = [this.state.lat, this.state.lng]
     return (
-      <Map center={position} zoom={this.state.zoom}>
-        <TileLayer
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-        />
-        {this.props.place.map(pin => (
-          <Marker key={pin.id} position={pin.location}>
-            <Popup>
-              {pin.name} <br /> address: {pin.address}
-            </Popup>
-          </Marker>
-        ))}
-      </Map>
+      <div>
+        <Map center={position} zoom={this.state.zoom}>
+          <TileLayer
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          />
+          {this.props.place.map(pin => (
+            <Marker key={pin.id} position={pin.location}>
+              <Popup>
+                {pin.name} <br /> address: {pin.address}
+              </Popup>
+            </Marker>
+          ))}
+        </Map>
+        {this.props.place.map(pin => pin.name)}
+      </div>
     )
   }
 }

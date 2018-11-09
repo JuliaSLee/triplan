@@ -11,7 +11,7 @@ class Checklist extends Component {
     return (
       <Form>
         <Form.Group grouped>
-          <label>My Checklist</label>
+          <h2>My Checklist</h2>
 
           {this.props.checklist.map(listItem => (
             <Form.Field
