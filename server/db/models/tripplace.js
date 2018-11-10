@@ -6,15 +6,6 @@ const TripPlace = db.define('tripplace', {
     type: Sequelize.DATE,
     allowNull: false,
     validate: {notEmpty: true}
-  },
-  hour: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {isNumeric: true, min: 0, max: 23}
-  },
-  minute: {
-    type: Sequelize.ENUM,
-    values: ['0', '30']
   }
 })
 

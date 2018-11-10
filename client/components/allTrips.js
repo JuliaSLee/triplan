@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Card, Icon, Image, Container, Header} from 'semantic-ui-react'
+import {Card, Icon, Image, Container, Header, Button} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
 import TripCard from './tripCard'
 
@@ -17,6 +17,10 @@ export class AllTrips extends Component {
         {this.props.trip.map(singleTrip => (
           <TripCard key={singleTrip.id} singleTrip={singleTrip} />
         ))}
+        <Button>
+          <Icon name="plane" />
+          Add a New Trip
+        </Button>
       </Container>
     )
   }
