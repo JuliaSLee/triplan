@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form, TextArea, Button, Icon} from 'semantic-ui-react'
 
-const Note = () => (
+const Note = props => (
   <Form>
     <Form.Group grouped>
       <h2>Note</h2>

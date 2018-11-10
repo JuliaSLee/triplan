@@ -7,7 +7,7 @@ import VisualMap from './map'
 import Note from './note'
 import Checklist from './checklist'
 
-class SingleTrip extends Component {
+export class SingleTrip extends Component {
   componentDidMount() {
     // const tripId = Number(this.props.match.params.tripId)
     // console.log('===>tripId', tripId)

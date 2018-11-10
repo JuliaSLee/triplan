@@ -4,7 +4,7 @@ import {Form, Segment, Button} from 'semantic-ui-react'
 import {fetchChecklist, deleteChecklist} from '../store'
 import ChecklistForm from './checklistForm'
 
-class Checklist extends Component {
+export class Checklist extends Component {
   componentDidMount() {
     this.props.setChecklist()
   }

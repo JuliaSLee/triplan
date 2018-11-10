@@ -4,7 +4,7 @@ import {Card, Icon, Image, Container, Header} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
 import TripCard from './tripCard'
 
-class AllTrips extends Component {
+export class AllTrips extends Component {
   componentDidMount() {
     this.props.setTrips()
   }
