@@ -39,8 +39,7 @@
   "dependencies": {
     "@google/maps": "^0.5.5",
     "axios": "^0.15.3",
-    "chart.js": "2.6.0",
-    "chartjs-plugin-annotation": "^0.5.7",
+    "chart.js": "^2.7.3",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^4.1.0",
     "express": "^4.16.3",
@@ -55,6 +54,7 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.6.1",
     "react-google-autocomplete": "^1.0.18",
     "react-google-maps": "^9.4.5",

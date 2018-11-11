@@ -5,6 +5,7 @@ import {Card, Icon, Image, Container, Header} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
 import VisualMap from './map'
 import Note from './note'
+import Budget from './budget'
 import Checklist from './checklist'
 
 export class SingleTrip extends Component {
@@ -25,7 +26,9 @@ export class SingleTrip extends Component {
           Map
         </Link>
         <br />
-        <Link to="/budget">Budget</Link>
+        <Link to="/budget" onClick={() => <Budget />}>
+          Budget
+        </Link>
         <br />
         <Link to="/note" onClick={() => <Note />}>
           Note
