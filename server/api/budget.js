@@ -37,6 +37,7 @@ router.delete('/:budgetId', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const budget = await Budget.create(req.body)
+    console.log('whats budget', budget)
     res.json(budget)
   } catch (err) {
     next(err)

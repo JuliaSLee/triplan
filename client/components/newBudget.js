@@ -9,7 +9,8 @@ class NewBudget extends Component {
     this.state = {
       name: '',
       amount: 0,
-      actualAmount: 0
+      actualAmount: 0,
+      tripId: 1
     }
   }
 
@@ -21,15 +22,17 @@ class NewBudget extends Component {
 
   handleClick = async e => {
     e.preventDefault()
-    const tripId = 1
-    const {name, amount, actualAmount} = this.state
+    const {name, amount, actualAmount, tripId} = this.state
     const singleBudget = {name, amount, actualAmount, tripId}
     try {
+      console.log('is this hit?')
       await this.props.addBudget(singleBudget)
+      console.log('singleBudget', singleBudget)
       this.setState({
         name: '',
         amount: 0,
-        actualAmount: 0
+        actualAmount: 0,
+        tripId: 1
       })
     } catch (err) {
       console.log(err)
@@ -62,7 +65,6 @@ class NewBudget extends Component {
             name="actualAmount"
             onChange={this.handleChange}
           />
-          <Button>Save</Button>
         </Table.Cell>
         <Table.Cell>
           <Button onClick={this.handleClick}>

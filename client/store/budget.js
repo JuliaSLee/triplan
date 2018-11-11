@@ -57,7 +57,9 @@ export const deleteBudget = id => async dispatch => {
 
 export const newBudget = budget => async dispatch => {
   try {
+    console.log('----> budget', budget)
     const {data} = await axios.post('/api/budget', budget)
+    console.log('----> data', data)
     dispatch(addBudget(data))
   } catch (err) {
     console.log(err)

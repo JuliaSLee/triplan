@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Doughnut} from 'react-chartjs-2'
+// import {Doughnut} from 'react-chartjs-2'
 import {fetchBudget} from '../store'
 import {Table, Input, Button, Icon} from 'semantic-ui-react'
 import SingleBudget from './singleBudget'
 import NewBudget from './newBudget'
+import Chart from './chart.js'
 
 class Budget extends Component {
   componentDidMount() {
@@ -13,27 +14,17 @@ class Budget extends Component {
 
   render() {
     const {budget} = this.props
-    console.log('Budget', budget)
+
     let totalBudgetAmount = 0
     const totalBudget = budget.map(item => {
       totalBudgetAmount += item.amount
       return totalBudgetAmount
     })
-
-    const data = {
-      labels: ['Red', 'Green', 'Yellow'],
-      datasets: [
-        {
-          data: [300, 50, 100],
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-        }
-      ],
-      option: {
-        rotation: 1 * Math.PI,
-        circumference: 1 * Math.PI
-      }
-    }
+    let totalActualAmount = 0
+    const totalActual = budget.map(item => {
+      totalActualAmount += item.actualAmount
+      return totalActualAmount
+    })
 
     return (
       <div>
@@ -53,12 +44,12 @@ class Budget extends Component {
             <Table.Row>
               <Table.Cell>Total</Table.Cell>
               <Table.Cell>{totalBudgetAmount}</Table.Cell>
-              <Table.Cell />
+              <Table.Cell>{totalActualAmount}</Table.Cell>
               <Table.Cell />
             </Table.Row>
           </Table.Body>
         </Table>
-        <Doughnut data={data} />
+        <Chart {...this.props} />
       </div>
     )
   }
