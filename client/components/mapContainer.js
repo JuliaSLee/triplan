@@ -52,16 +52,27 @@ export class MapContainer extends Component {
     })
   }
 
-  render() {
-    const {places} = this.props
+  fetchPlaces(mapProps, map) {
+    const {google} = mapProps
+    const service = new google.maps.places.PlacesService(map)
+  }
 
+  render() {
+    const {places, clickedItem} = this.props
     if (!this.props.loaded) {
       return <div>Loading...</div>
+    }
+
+    let clickedPlace
+
+    if (clickedItem) {
+      clickedPlace = places.filter(place => place.id === Number(clickedItem))[0]
     }
 
     return (
       <Map
         google={this.props.google}
+        onReady={this.fetchPlaces}
         zoom={14}
         style={mapStyles}
         initialCenter={{
@@ -75,14 +86,23 @@ export class MapContainer extends Component {
             key={pinPlace.id}
             onClick={this.onMarkerClick}
             name={pinPlace.name}
+            address={pinPlace.address}
             position={{lat: pinPlace.location[0], lng: pinPlace.location[1]}}
           />
         ))}
-        <Marker
-          position={{lat: 41.87, lng: -87.62}}
-          onClick={this.onMarkerClick}
-          name="2nd"
-        />
+        {clickedPlace && (
+          <Marker
+            key={clickedPlace.id}
+            onClick={this.onMarkerClick}
+            name={clickedPlace.name}
+            position={{
+              lat: clickedPlace.location[0],
+              lng: clickedPlace.location[1]
+            }}
+            address={clickedPlace.address}
+            icon="/image/minion.png"
+          />
+        )}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -90,6 +110,7 @@ export class MapContainer extends Component {
         >
           <div>
             <h4>{this.state.selectedPlace.name}</h4>
+            <h5>{this.state.selectedPlace.address}</h5>
           </div>
         </InfoWindow>
       </Map>

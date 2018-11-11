@@ -94,7 +94,7 @@ const place = [
   {
     name: 'Adler Planetarium',
     address: '1300 S Lake Shore Dr, Chicago, IL 60605',
-    location: [41.884307, -87.643409]
+    location: [41.866413, -87.607148]
   },
   {
     name: 'Ghirardelli Ice Cream',
@@ -105,11 +105,6 @@ const place = [
     name: 'Au Cheval',
     address: '800 W Randolph St, Chicago, IL 60607',
     location: [41.884617, -87.647609]
-  },
-  {
-    name: "O'Hare International Airport",
-    address: "10000 W O'Hare Ave, Chicago, IL 60666",
-    location: [41.975057, -87.909333]
   }
 ]
 
@@ -148,8 +143,7 @@ const tripplace = [
   {date: '07-05-2019', tripId: 1, placeId: 5},
   {date: '07-05-2019', tripId: 1, placeId: 6},
   {date: '07-04-2019', tripId: 1, placeId: 7},
-  {date: '07-04-2019', tripId: 1, placeId: 8},
-  {date: '07-04-2019', tripId: 1, placeId: 9}
+  {date: '07-04-2019', tripId: 1, placeId: 8}
 ]
 
 async function seed() {
