@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
-// import SearchBox from './searchBox'
-import Autocomplete from 'react-google-autocomplete'
+import SearchBar from './searchBar'
 
 const mapStyles = {
   position: 'absolute',
@@ -72,14 +71,7 @@ export class MapContainer extends Component {
     }
     return (
       <div>
-        <Autocomplete
-          style={{width: '90%'}}
-          onPlaceSelected={place => {
-            console.log(place)
-          }}
-          types={['(regions)']}
-        />
-        {/* <SearchBox {...this.props} /> */}
+        <SearchBar />
         <Map
           google={this.props.google}
           onReady={this.fetchPlaces}
