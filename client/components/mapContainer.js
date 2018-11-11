@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
+import SearchBox from './searchBox'
+import Autocomplete from 'react-google-autocomplete'
 
 const mapStyles = {
   position: 'absolute',
@@ -68,52 +70,61 @@ export class MapContainer extends Component {
     if (clickedItem) {
       clickedPlace = places.filter(place => place.id === Number(clickedItem))[0]
     }
-
     return (
-      <Map
-        google={this.props.google}
-        onReady={this.fetchPlaces}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={{
-          lat: 41.878304,
-          lng: -87.624322
-        }}
-        onClick={this.onClick}
-      >
-        {places.map(pinPlace => (
-          <Marker
-            key={pinPlace.id}
-            onClick={this.onMarkerClick}
-            name={pinPlace.name}
-            address={pinPlace.address}
-            position={{lat: pinPlace.location[0], lng: pinPlace.location[1]}}
-          />
-        ))}
-        {clickedPlace && (
-          <Marker
-            key={clickedPlace.id}
-            onClick={this.onMarkerClick}
-            name={clickedPlace.name}
-            position={{
-              lat: clickedPlace.location[0],
-              lng: clickedPlace.location[1]
-            }}
-            address={clickedPlace.address}
-            icon="/image/minion.png"
-          />
-        )}
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
+      <div>
+        <Autocomplete
+          style={{width: '90%'}}
+          onPlaceSelected={place => {
+            console.log(place)
+          }}
+          types={['(regions)']}
+        />
+        <SearchBox {...this.props} />
+        <Map
+          google={this.props.google}
+          onReady={this.fetchPlaces}
+          zoom={14}
+          style={mapStyles}
+          initialCenter={{
+            lat: 41.878304,
+            lng: -87.624322
+          }}
+          onClick={this.onClick}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-            <h5>{this.state.selectedPlace.address}</h5>
-          </div>
-        </InfoWindow>
-      </Map>
+          {places.map(pinPlace => (
+            <Marker
+              key={pinPlace.id}
+              onClick={this.onMarkerClick}
+              name={pinPlace.name}
+              address={pinPlace.address}
+              position={{lat: pinPlace.location[0], lng: pinPlace.location[1]}}
+            />
+          ))}
+          {clickedPlace && (
+            <Marker
+              key={clickedPlace.id}
+              onClick={this.onMarkerClick}
+              name={clickedPlace.name}
+              position={{
+                lat: clickedPlace.location[0],
+                lng: clickedPlace.location[1]
+              }}
+              address={clickedPlace.address}
+              icon="/image/minion.png"
+            />
+          )}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+              <h5>{this.state.selectedPlace.address}</h5>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     )
   }
 }
