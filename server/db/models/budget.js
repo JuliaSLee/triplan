@@ -9,7 +9,10 @@ const Budget = db.define('budget', {
   },
   amount: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    validate: {isNumeric: true, min: 0}
+  },
+  actualAmount: {
+    type: Sequelize.INTEGER,
     validate: {isNumeric: true, min: 0}
   }
 })

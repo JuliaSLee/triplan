@@ -18,7 +18,7 @@ const users = [
 ]
 
 const budget = [
-  {name: 'Flight ticket', amount: 150, tripId: 1},
+  {name: 'Flight ticket', amount: 150, actualAmount: 140, tripId: 1},
   {name: 'Art institute of Chicago', amount: 15, tripId: 1},
   {name: 'Willis Tower Skydeck', amount: 30, tripId: 1},
   {name: 'Avec', amount: 50, tripId: 1},
@@ -31,7 +31,7 @@ const budget = [
   {name: 'Ghirardelli Ice Cream', amount: 12, tripId: 1},
   {name: 'Uber', amount: 50, tripId: 1},
   {name: 'Metra', amount: 10, tripId: 1},
-  {name: 'Hilton Hotel', amount: 460, tripId: 1},
+  {name: 'Hilton Hotel', amount: 460, actualAmount: 470, tripId: 1},
   {name: 'Garrett Popcorn', amount: 13, tripId: 1}
 ]
 
