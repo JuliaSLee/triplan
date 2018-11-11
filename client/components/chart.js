@@ -93,14 +93,12 @@ export default class Chart extends Component {
       datasets: [
         {
           data: [totalBudgetAmount, totalActualAmount],
-          backgroundColor: ['#57af59', '#74a0f2'],
-          hoverBackgroundColor: ['#FF6384'],
+          backgroundColor: ['#57af59'],
           label: 'Budget'
         },
         {
           data: [totalActualAmount],
           backgroundColor: ['#74a0f2'],
-          hoverBackgroundColor: ['#FF6384'],
           label: 'Actual'
         }
       ]
