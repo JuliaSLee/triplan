@@ -92,7 +92,7 @@ export default class Chart extends Component {
       labels: [''],
       datasets: [
         {
-          data: [totalBudgetAmount, totalActualAmount],
+          data: [totalBudgetAmount],
           backgroundColor: ['#57af59'],
           label: 'Budget'
         },
