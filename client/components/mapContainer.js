@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
-import SearchBox from './searchBox'
+// import SearchBox from './searchBox'
 import Autocomplete from 'react-google-autocomplete'
 
 const mapStyles = {
@@ -79,7 +79,7 @@ export class MapContainer extends Component {
           }}
           types={['(regions)']}
         />
-        <SearchBox {...this.props} />
+        {/* <SearchBox {...this.props} /> */}
         <Map
           google={this.props.google}
           onReady={this.fetchPlaces}
