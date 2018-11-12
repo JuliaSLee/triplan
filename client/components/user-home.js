@@ -10,7 +10,7 @@ export const UserHome = props => {
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <img src="/image/travel.png" className="center" />
     </div>
   )
 }

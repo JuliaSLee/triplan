@@ -1,6 +1,7 @@
 import React from 'react'
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from '../../src'
 import {classnames} from '../helpers'
+import {Marker} from 'google-maps-react'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class SearchBar extends React.Component {
                       className="Demo__clear-button"
                       onClick={this.handleCloseClick}
                     >
-                      x
+                      Clear
                     </button>
                   )}
                 </div>
@@ -136,6 +137,7 @@ class SearchBar extends React.Component {
                   <label>Longitude:</label>
                   <span>{longitude}</span>
                 </div>
+                <Marker position={{lat: latitude, lng: latitude}} />
               </div>
             )}
           </div>

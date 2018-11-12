@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {Card, Icon, Image, Container, Header} from 'semantic-ui-react'
+import {Grid, Image, Menu, Container, Header} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
-import VisualMap from './map'
+import MenuBar from './menuBar'
 import Note from './note'
 import Budget from './budget'
 import Checklist from './checklist'
+// import SidebarExampleVisible from './sideBar'
 
 export class SingleTrip extends Component {
   componentDidMount() {
@@ -17,28 +18,7 @@ export class SingleTrip extends Component {
   render() {
     const tripId = Number(this.props.match.params.tripId)
     const trip = this.props.trip[tripId - 1]
-    return (
-      <Container>
-        <Header as="h2" dividing>
-          Trip to: {trip.name}
-        </Header>
-        <Link to="/map" onClick={() => <VisualMap />}>
-          Map
-        </Link>
-        <br />
-        <Link to="/budget" onClick={() => <Budget />}>
-          Budget
-        </Link>
-        <br />
-        <Link to="/note" onClick={() => <Note />}>
-          Note
-        </Link>
-        <br />
-        <Link to="/checklist" onClick={() => <Checklist />}>
-          Checklist
-        </Link>
-      </Container>
-    )
+    return <MenuBar />
   }
 }
 

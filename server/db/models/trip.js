@@ -16,6 +16,9 @@ const Trip = db.define('trip', {
     type: Sequelize.DATE,
     allowNull: false,
     validate: {notEmpty: true}
+  },
+  image: {
+    type: Sequelize.STRING
   }
 })
 

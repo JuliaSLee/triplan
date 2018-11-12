@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 // import {Doughnut} from 'react-chartjs-2'
 import {fetchBudget} from '../store'
-import {Table, Input, Button, Icon} from 'semantic-ui-react'
+import {Table, Input, Button, Icon, Segment} from 'semantic-ui-react'
 import SingleBudget from './singleBudget'
 import NewBudget from './newBudget'
 import Chart from './chart.js'
@@ -27,7 +27,7 @@ class Budget extends Component {
     })
 
     return (
-      <div>
+      <Segment>
         <h2>Budget vs. Actual</h2>
         <Table celled>
           <Table.Header>
@@ -50,7 +50,7 @@ class Budget extends Component {
           </Table.Body>
         </Table>
         <Chart {...this.props} />
-      </div>
+      </Segment>
     )
   }
 }

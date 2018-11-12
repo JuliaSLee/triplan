@@ -53,97 +53,100 @@ export class Map extends Component {
 
   render() {
     return (
-      <Grid columns={2}>
-        <Grid.Column>
-          <MapContainer
-            places={this.state.places}
-            clickedItem={this.state.clickedItem}
-          />
-        </Grid.Column>
-        <Grid.Column>
-          <List>
-            <Button href="#" name="allPlaces" onClick={this.handleClick}>
-              Show All
-            </Button>
-            <Header>
-              <a href="#" name="placesByDay1" onClick={this.handleClick}>
-                Day 1
-              </a>
-            </Header>
-            {this.props.place.map(pinPlace => {
-              if (
-                pinPlace.trips[0].startDate === pinPlace.trips[0].tripplace.date
-              ) {
-                return (
-                  <div key={pinPlace.id}>
-                    <List.Item>
-                      <List.Content>
-                        <List.Header>
-                          <a
-                            href="#"
-                            name="clickedItem"
-                            id={pinPlace.id}
-                            onClick={this.handleClick}
-                          >
-                            <List.Icon name="marker" />
-                            {pinPlace.name}
-                          </a>
-                        </List.Header>
-                        <List.Description />
-                      </List.Content>
-                    </List.Item>
-                  </div>
-                )
-              }
-            })}
-            <List.Item>
-              <Input placeholder="Search" />
-              <Button>
-                <Icon name="plus" />
-                Add
+      <Grid relaxed>
+        <Grid.Row>
+          <Grid.Column width={13}>
+            <MapContainer
+              places={this.state.places}
+              clickedItem={this.state.clickedItem}
+            />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <List>
+              <Button href="#" name="allPlaces" onClick={this.handleClick}>
+                Show All
               </Button>
-            </List.Item>
+              <Header>
+                <a href="#" name="placesByDay1" onClick={this.handleClick}>
+                  Day 1
+                </a>
+              </Header>
+              {this.props.place.map(pinPlace => {
+                if (
+                  pinPlace.trips[0].startDate ===
+                  pinPlace.trips[0].tripplace.date
+                ) {
+                  return (
+                    <div key={pinPlace.id}>
+                      <List.Item>
+                        <List.Content>
+                          <List.Header>
+                            <a
+                              href="#"
+                              name="clickedItem"
+                              id={pinPlace.id}
+                              onClick={this.handleClick}
+                            >
+                              <List.Icon name="marker" />
+                              {pinPlace.name}
+                            </a>
+                          </List.Header>
+                          <List.Description />
+                        </List.Content>
+                      </List.Item>
+                    </div>
+                  )
+                }
+              })}
+              <List.Item>
+                <Input placeholder="Search" />
+                <Button>
+                  <Icon name="plus" />
+                  Add
+                </Button>
+              </List.Item>
 
-            <Header>
-              <a href="#" name="placesByDay2" onClick={this.handleClick}>
-                Day 2
-              </a>
-            </Header>
-            {this.props.place.map(pinPlace => {
-              if (
-                pinPlace.trips[0].endDate === pinPlace.trips[0].tripplace.date
-              ) {
-                return (
-                  <div key={pinPlace.id}>
-                    <List.Item>
-                      <List.Content>
-                        <List.Header>
-                          <a
-                            href="#"
-                            name="clickedItem"
-                            id={pinPlace.id}
-                            onClick={this.handleClick}
-                          >
-                            <List.Icon name="marker" />
-                            {pinPlace.name}
-                          </a>
-                        </List.Header>
-                        <List.Description />
-                      </List.Content>
-                    </List.Item>
-                  </div>
-                )
-              }
-            })}
-            <List.Item>
-              <Input placeholder="Search" />
-              <Button>
-                <Icon name="plus" />
-                Add
-              </Button>
-            </List.Item>
-          </List>
-        </Grid.Column>
+              <Header>
+                <a href="#" name="placesByDay2" onClick={this.handleClick}>
+                  Day 2
+                </a>
+              </Header>
+              {this.props.place.map(pinPlace => {
+                if (
+                  pinPlace.trips[0].endDate === pinPlace.trips[0].tripplace.date
+                ) {
+                  return (
+                    <div key={pinPlace.id}>
+                      <List.Item>
+                        <List.Content>
+                          <List.Header>
+                            <a
+                              href="#"
+                              name="clickedItem"
+                              id={pinPlace.id}
+                              onClick={this.handleClick}
+                            >
+                              <List.Icon name="marker" />
+                              {pinPlace.name}
+                            </a>
+                          </List.Header>
+                          <List.Description />
+                        </List.Content>
+                      </List.Item>
+                    </div>
+                  )
+                }
+              })}
+              <List.Item>
+                <Input placeholder="Search" />
+                <Button>
+                  <Icon name="plus" />
+                  Add
+                </Button>
+              </List.Item>
+            </List>
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     )
   }

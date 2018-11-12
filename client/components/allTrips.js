@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Card, Icon, Image, Container, Header, Button} from 'semantic-ui-react'
+import {Segment, Icon, Grid, Button} from 'semantic-ui-react'
 import {fetchTrips} from '../store'
 import TripCard from './tripCard'
 
@@ -10,18 +10,19 @@ export class AllTrips extends Component {
   }
   render() {
     return (
-      <Container>
-        <Header as="h2" dividing>
-          My Trips
-        </Header>
-        {this.props.trip.map(singleTrip => (
-          <TripCard key={singleTrip.id} singleTrip={singleTrip} />
-        ))}
+      <div>
         <Button>
           <Icon name="plane" />
           Add a New Trip
         </Button>
-      </Container>
+        <Grid columns={4}>
+          <Grid.Row>
+            {this.props.trip.map(singleTrip => (
+              <TripCard key={singleTrip.id} singleTrip={singleTrip} />
+            ))}
+          </Grid.Row>
+        </Grid>
+      </div>
     )
   }
 }

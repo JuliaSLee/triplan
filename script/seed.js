@@ -108,25 +108,29 @@ const trip = [
     name: 'Chicago, July 2019',
     startDate: '07-04-2019',
     endDate: '07-05-2019',
-    userId: 3
+    userId: 3,
+    image: '/image/Chicago.jpg'
   },
   {
     name: 'New York, October 2018',
     startDate: '10-06-2018',
     endDate: '10-10-2018',
-    userId: 3
+    userId: 3,
+    image: '/image/newyork.jpg'
   },
   {
     name: 'Italy, April 2018',
     startDate: '04-06-2018',
     endDate: '04-16-2018',
-    userId: 3
+    userId: 3,
+    image: '/image/italy.jpg'
   },
   {
     name: 'Seoul Korea, January 2017',
     startDate: '01-08-2017',
     endDate: '01-16-2017',
-    userId: 3
+    userId: 3,
+    image: '/image/seoul.jpg'
   }
 ]
 

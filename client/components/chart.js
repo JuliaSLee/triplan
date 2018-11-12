@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Doughnut, Bar} from 'react-chartjs-2'
+import {Doughnut, Bar, Segment} from 'react-chartjs-2'
 
 export default class Chart extends Component {
   render() {
