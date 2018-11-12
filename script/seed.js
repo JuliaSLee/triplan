@@ -47,11 +47,11 @@ const checklist = [
 const note = [
   {
     contents:
-      'Chicago average temperature in July is 82°/70° (°F). Mostly sunny, rains 7 days on average, and windy 🌬',
+      'Chicago average temperature in July is 82°/70° (°F). Mostly sunny, rains 7 days on average, and windy',
     tripId: 1
   },
   {
-    contents: 'Southside Chicago is dangerous🙅‍ especially at night',
+    contents: 'Southside Chicago is dangerous!',
     tripId: 1
   },
   {

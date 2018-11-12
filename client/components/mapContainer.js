@@ -5,7 +5,7 @@ import SearchBar from './searchBar'
 const mapStyles = {
   position: 'absolute',
   width: '100%',
-  height: '100%'
+  height: '90vh'
 }
 
 export class MapContainer extends Component {

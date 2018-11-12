@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Icon, List, Button, Header, Grid, Input} from 'semantic-ui-react'
+import {Icon, List, Button, Header, Grid, Input, Menu} from 'semantic-ui-react'
 import MapContainer from './mapContainer'
 import {fetchPlaces} from '../store'
 

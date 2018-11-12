@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Form, TextArea, Button, Icon} from 'semantic-ui-react'
+import {Form, TextArea, Button, Card} from 'semantic-ui-react'
 import {fetchNote} from '../store'
 
 class Note extends Component {
@@ -9,7 +9,6 @@ class Note extends Component {
   }
 
   render() {
-    console.log(this.props.note)
     return (
       <div>
         <Form>
