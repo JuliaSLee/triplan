@@ -19,14 +19,14 @@ const users = [
 
 const budget = [
   {name: 'Flight ticket', amount: 100, actualAmount: 90, tripId: 1},
-  {name: 'Art institute of Chicago', amount: 15, tripId: 1},
+  {name: 'Art institute of Chicago', amount: 15, actualAmount: 15, tripId: 1},
   {name: 'Willis Tower Skydeck', amount: 30, tripId: 1},
   {name: 'Avec', amount: 50, tripId: 1},
   {name: 'Au Cheval', amount: 35, actualAmount: 30, tripId: 1},
   {name: 'Architecture Tour', amount: 30, tripId: 1},
   {name: 'Intelligentsia Coffee', amount: 10, tripId: 1},
   {name: 'Uber', amount: 50, tripId: 1},
-  {name: 'Metra', amount: 10, actualAmount: 15, tripId: 1},
+  // {name: 'Metra', amount: 10, actualAmount: 15, tripId: 1},
   {name: 'Garrett Popcorn', amount: 13, tripId: 1}
 ]
 

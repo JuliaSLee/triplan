@@ -27,30 +27,34 @@ class Budget extends Component {
     })
 
     return (
-      <Segment>
-        <h2>Budget vs. Actual</h2>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Item</Table.HeaderCell>
-              <Table.HeaderCell>Budget</Table.HeaderCell>
-              <Table.HeaderCell>Actual</Table.HeaderCell>
-              <Table.HeaderCell />
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {budget.map(item => <SingleBudget key={item.id} item={item} />)}
-            <NewBudget />
-            <Table.Row>
-              <Table.Cell>Total</Table.Cell>
-              <Table.Cell>{totalBudgetAmount}</Table.Cell>
-              <Table.Cell>{totalActualAmount}</Table.Cell>
-              <Table.Cell />
-            </Table.Row>
-          </Table.Body>
-        </Table>
-        <Chart {...this.props} />
-      </Segment>
+      <div>
+        <Segment>
+          <h2>Budget vs. Actual</h2>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Item</Table.HeaderCell>
+                <Table.HeaderCell>Budget</Table.HeaderCell>
+                <Table.HeaderCell>Actual</Table.HeaderCell>
+                <Table.HeaderCell />
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {budget.map(item => <SingleBudget key={item.id} item={item} />)}
+              <NewBudget />
+              <Table.Row>
+                <Table.Cell>Total</Table.Cell>
+                <Table.Cell>{totalBudgetAmount}</Table.Cell>
+                <Table.Cell>{totalActualAmount}</Table.Cell>
+                <Table.Cell />
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </Segment>
+        <Segment>
+          <Chart {...this.props} />
+        </Segment>
+      </div>
     )
   }
 }

@@ -43,7 +43,7 @@ export default class Chart extends Component {
       legend: {
         position: 'left',
         labels: {
-          boxWidth: 50
+          boxWidth: 80
         }
       }
     }
@@ -110,27 +110,28 @@ export default class Chart extends Component {
         <Doughnut
           data={dataBudget}
           height={200}
-          width={800}
+          width={900}
           options={doughnutOptions}
         />
         <h2>Actual</h2>
         <Doughnut
           data={dataActual}
           height={200}
-          width={800}
+          width={900}
           options={doughnutOptions}
         />
+        <h2>Budget total vs. Actual total</h2>
         <Bar
           data={dataTotal}
           width={500}
-          height={500}
+          height={300}
           options={{
             maintainAspectRatio: false,
             responsive: false,
             legend: {
               position: 'left',
               labels: {
-                boxWidth: 50
+                boxWidth: 90
               }
             }
           }}
