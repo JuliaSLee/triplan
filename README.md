@@ -1,6 +1,6 @@
 # Triplan
 
-A single page web application to help people planning their travel
+A single page web application to help people planning their trip
 
 [App walkthrough](https://youtu.be/2GrjYfUIIgY)
 
