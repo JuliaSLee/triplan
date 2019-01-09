@@ -1,10 +1,10 @@
-Triplan
+# Triplan
 
 A single page web application to help people planning their travel
 
 
-Built With
+# Built With
 Node, Express, Postgres, React, Redux, Google Map API, Semantic-UI
 
-Authors
+# Authors
 Julia Lee
